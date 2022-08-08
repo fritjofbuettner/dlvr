@@ -1,0 +1,8 @@
+.git
+.gitlab-ci.yml
+.gitmodules
+venv
+__pycache__
+/.output
+node_modules
+docker*
