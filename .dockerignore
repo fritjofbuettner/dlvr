@@ -1,6 +1,8 @@
 .git
 .gitlab-ci.yml
 .gitmodules
+.nuxt
+.output
 venv
 __pycache__
 /.output
