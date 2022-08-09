@@ -101,6 +101,7 @@ python-versions = ">=3.6"
 
 [package.dependencies]
 anyio = ">=3.4.0,<5"
+typing-extensions = {version = ">=3.10.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
 full = ["itsdangerous", "jinja2", "python-multipart", "pyyaml", "requests"]
@@ -130,8 +131,8 @@ standard = ["websockets (>=10.0)", "httptools (>=0.4.0)", "watchfiles (>=0.13)",
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.10"
-content-hash = "7a53d5438e060ce78ff2cac0889a2f99cdc2003dd6aefda86bbabef4e601bee3"
+python-versions = "^3.8"
+content-hash = "888c7cdf00535412fb9d6799bdd2281fad43d7b2f7537d2099f40db5345b7a0f"
 
 [metadata.files]
 anyio = []
