@@ -12,6 +12,7 @@ FROM intel/dlstreamer
 ENV DEBIAN_FRONTEND=noninteractive
 
 USER 0
+RUN apt-get update && apt-get install -y python3-pip
 RUN python3 -m pip install -U pip
 RUN python3 -m pip install poetry
 
@@ -22,7 +23,7 @@ ENV POETRY_VIRTUALENVS_CREATE=false
 RUN python3 -m poetry install
 
 RUN omz_downloader --name person-detection-0201
-ADD "https://raw.githubusercontent.com/dlstreamer/dlstreamer/master/samples/model_proc/intel/person-detection-0201.json" /app/intel/person-detection-0201.json
+ADD "https://raw.githubusercontent.com/dlstreamer/dlstreamer/48b584ee1468fed295f83f33106e3bb2d7220ffa/samples/gstreamer/model_proc/intel/person-detection-0201.json" /app/intel/person-detection-0201.json
 
 RUN chown -R dlstreamer /app
 #USER dlstreamer
