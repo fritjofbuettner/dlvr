@@ -30,3 +30,5 @@ pnpm-debug.log*
 .output
 .env
 dist
+
+intel

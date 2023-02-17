@@ -9,13 +9,20 @@ RUN npm run build
 
 FROM intel/dlstreamer
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 USER 0
-RUN pip3 install poetry
+RUN python3 -m pip install -U pip
+RUN python3 -m pip install poetry
 
 WORKDIR /app
 COPY pyproject.toml .
 COPY poetry.lock .
+ENV POETRY_VIRTUALENVS_CREATE=false
 RUN python3 -m poetry install
+
+RUN omz_downloader --name person-detection-0201
+ADD "https://raw.githubusercontent.com/dlstreamer/dlstreamer/master/samples/model_proc/intel/person-detection-0201.json" /app/intel/person-detection-0201.json
 
 RUN chown -R dlstreamer /app
 #USER dlstreamer

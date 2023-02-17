@@ -1,27 +1,16 @@
 <template>
     <div>
-        <h1>Hello World
-            <v-chip>NEW</v-chip>
-        </h1>
-        <v-icon>alarm-plus</v-icon>
-        <p>{{ message }}</p>
-        <p>FOO</p>
+        <v-card
+            class="mx-auto"
+            width="400"
+            prepend-icon="mdi-home">
+            <template v-slot:title>
+                Hello from Vuetify!
+            </template>
+            <v-card-text>
+                <v-icon icon="mdi-antenna"></v-icon>
+                When you see this inside a card, it worked!
+            </v-card-text>
+        </v-card>
     </div>
 </template>
-
-<script>
-import axios from 'axios'
-
-export default {
-    name: "App",
-    data: function () {
-        return {
-            message: "loading"
-        }
-    },
-    mounted() {
-        console.log("loading")
-        axios.get("/api").then(response => this.message = response.data.hello)
-    }
-}
-</script>
