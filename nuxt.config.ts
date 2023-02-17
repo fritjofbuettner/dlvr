@@ -2,6 +2,7 @@ import {defineNuxtConfig} from 'nuxt/config'
 import vuetify from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
+    ssr: false,
     css: ['vuetify/styles'], // vuetify ships precompiled css, no need to import sass
     vite: {
         // @ts-ignore
@@ -9,6 +10,14 @@ export default defineNuxtConfig({
         ssr: {
             noExternal: ['vuetify'], // add the vuetify vite plugin
         },
+        server: {
+            proxy: {
+                '/api': {
+                    target: 'http://localhost:10001',
+                    ws: true,
+                },
+            },
+        }
     },
     modules: [
         // @ts-ignore
